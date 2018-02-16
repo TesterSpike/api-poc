@@ -1,0 +1,23 @@
+{
+  "title": "Mr",
+  "email": "nofileuser@automatedtestuser.com",
+  "password": "Test1234",
+  "firstName": "Larry",
+  "lastName": "Nofile",
+  "idvStatus": "NO_FILE",
+  "dob": {
+    "year": 1981,
+    "month": 7,
+    "day": 10
+  },
+  "addresses": [
+    {
+      "buildingNumber": "18",
+      "street": "test street",
+      "town": "Yoford",
+      "postcode": "X90 1FT"
+    }
+  ],
+  "reports": [],
+  "userPreferences": {}
+}

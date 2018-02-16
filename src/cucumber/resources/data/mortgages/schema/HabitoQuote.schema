@@ -1,0 +1,152 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "type": "object",
+  "required": [
+    "quotea"
+  ],
+  "properties": {
+    "quotes": {
+      "type": "array",
+      "minItems": 0,
+      "items": [
+        {
+          "type": "object",
+          "required": [
+            "quote",
+            "providerId",
+            "apply",
+            "correlationId",
+            "lender"
+          ],
+          "properties": {
+            "quote": {
+              "type": "object",
+              "required": [
+                "savings",
+                "maximumMortgageAmount",
+                "mortgageAmount",
+                "loan",
+                "propertyValue",
+                "kind",
+                "type",
+                "deposit",
+                "stampDuty"
+              ],
+              "properties": {
+                "savings": {
+                  "type": "number"
+                },
+                "maximumMortgageAmount": {
+                  "type": "number"
+                },
+                "mortgageAmount": {
+                  "type": "number"
+                },
+                "loan": {
+                  "type": "object",
+                  "required": [
+                    "totalRepayable",
+                    "lenderRate",
+                    "term",
+                    "loanToValue",
+                    "offerTerm",
+                    "monthlyRepayments",
+                    "fees",
+                    "repayment",
+                    "product"
+                  ],
+                  "properties": {
+                    "totalRepayable": {
+                      "type": "number"
+                    },
+                    "lenderRate": {
+                      "type": "number"
+                    },
+                    "term": {
+                      "type": "number"
+                    },
+                    "loanToValue": {
+                      "type": "number"
+                    },
+                    "offerTerm": {
+                      "type": "number"
+                    },
+                    "monthlyRepayments": {
+                      "type": "number"
+                    },
+                    "fees": {
+                      "type": "number"
+                    },
+                    "repayment": {
+                      "type": "string",
+                      "enum": [
+                        "CapitalAndInterest",
+                        "Interest"
+                      ]
+                    },
+                    "product": {
+                      "type": "string",
+                      "enum": [
+                        "Fixed",
+                        "Variable",
+                        "Tracker"
+                      ]
+                    }
+                  }
+                },
+                "propertyValue": {
+                  "type": "number"
+                },
+                "kind": {
+                  "type": "string",
+                  "enum": [
+                    "NewMortgage",
+                    "ReMortgage"
+                  ]
+                },
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "FirstTime",
+                    "HomeMover",
+                    "Residential",
+                    "BuyToLet"
+                  ]
+                },
+                "deposit": {
+                  "type": "number"
+                },
+                "stampDuty": {
+                  "type": "number"
+                }
+              }
+            },
+            "providerId": {
+              "type": "string",
+              "enum": [
+                "habito"
+              ]
+            },
+            "apply": {
+              "type": "object",
+              "properties": {
+                "url": {
+                  "type": "string"
+                },
+                "phone": {
+                  "type": "string"
+                }
+              },
+              "correlationId": {
+                "type": "string"
+              },
+              "lender": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

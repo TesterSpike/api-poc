@@ -1,0 +1,44 @@
+{
+  "individual": {
+    "accountId": 21654997,
+    "uuid": "0344a0ee-fb65-4d00-96ad-c28806d62e4c",
+    "title": "Miss",
+    "lastName": "Tamdy",
+    "firstName": "Dian",
+    "birthDate": "1965-11-01",
+    "addresses": [
+      {
+        "yearsAtAddress": 4,
+        "monthsAtAddress": 6,
+        "houseNumber": "26",
+        "streetName": "HIGH STREET",
+        "townName": "WESTBURY",
+        "postCode": "BA13 3BN"
+      }
+    ],
+    "incomeAmount": 45000,
+    "employmentStatus": "EMPLOYED",
+    "residentialStatus": "HOME_OWNER",
+    "emailAddress": "mortgage_1@clrscr.uk"
+  },
+  "application": {
+    "quote": {
+      "kind": "NewMortgage",
+      "type": "Residential",
+      "residenceValue": 1000000,
+      "loan": {
+        "product": "Fixed",
+        "offerTerm": 2,
+        "repayment": "CapitalAndInterest"
+      }
+    },
+    "financialDetails": {
+      "savings": 0,
+      "annualIncome": 15000,
+      "joint": false,
+      "totalCreditDebt": 50000,
+      "monthlyLoanPayments": 1500
+    }
+  },
+  "flowId": "new_mortgage_single_insufficient_funds"
+}

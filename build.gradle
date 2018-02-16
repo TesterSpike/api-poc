@@ -1,0 +1,65 @@
+plugins {
+    id "com.github.samueltbrown.cucumber" version "0.9"
+    id 'java'
+    id 'idea'
+}
+
+group 'com.clearscore'
+version '0.1'
+
+sourceCompatibility = 1.9
+
+repositories {
+    mavenCentral()
+    maven {
+        url "https://oss.sonatype.org/content/repositories/snapshots/"
+    }
+}
+
+sourceSets {
+    cucumber {
+        java { srcDir('src/cucumber/java') }
+        resources { srcDir('src/cucumber/resources') }
+        compileClasspath += test.output
+    }
+}
+
+dependencies {
+    testCompile('io.rest-assured:rest-assured:3.0.6')
+    cucumberRuntime('io.cucumber:cucumber-java:2.1.+')
+    testCompile('io.cucumber:cucumber-core:2.3.+')
+    testCompile('io.cucumber:cucumber-java:2.3.+')
+    testCompile('io.cucumber:cucumber-picocontainer:2.1.+')
+    testCompile('org.junit.jupiter:junit-jupiter-api:5.0.+')
+    testCompile('org.slf4j:slf4j-api:1.7.+')
+    testCompile('org.slf4j:slf4j-simple:1.7.+')
+    testCompile('org.json:json:20180130')
+    testCompile('org.everit.json:org.everit.json.schema:1.5.1')
+}
+
+allprojects {
+    tasks.withType(JavaCompile) {
+        sourceCompatibility = '1.9'
+        targetCompatibility = '1.9'
+    }
+}
+
+idea {
+    project {
+        languageLevel = '1.9'
+    }
+}
+
+cucumber {
+    formats = ['pretty', 'json:build/cucumber.json', 'junit:build/cucumber.xml']
+    tags = ['@all']
+    monochrome = false
+    strict = false
+    dryRun = false
+    ignoreFailures = false
+
+    jvmOptions {
+        maxHeapSize = '512m'
+        environment 'ENV', 'staging'
+    }
+}
