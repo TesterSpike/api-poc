@@ -11,9 +11,6 @@ sourceCompatibility = 1.9
 
 repositories {
     mavenCentral()
-    maven {
-        url "https://oss.sonatype.org/content/repositories/snapshots/"
-    }
 }
 
 sourceSets {
