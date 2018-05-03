@@ -1,13 +1,16 @@
 package step_definition.mortgage_service;
 
 import constant.StatusCode;
+import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import json.objects.mortgage_service.HabitoQuoteResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import util.BaseURI;
 import verify.VerifyHeader;
 
 import java.util.Arrays;
@@ -23,10 +26,13 @@ public class HabitoQuotes {
     private static final Logger LOGGER = LoggerFactory.getLogger(HabitoQuotes.class);
 
     private static final String CONTENT_TYPE_JSON = "application/json";
-    //TODO parametrise the root url
-    private static final String ROOT_URL = "https://admin.ci.gb.clearscore.io:83/mortgage-service/v1";
     private String requestBody;
     private Response response;
+
+    @Given("^I am using the \"([^\"]*)\"$")
+    public void givenIAmUsingThe(String serviceName) {
+        BaseURI.setup(serviceName);
+    }
 
     @Given("^I have the data for a user with insufficient funds$")
     public void givenIHaveTheDataForAUserWithInsufficientFunds() {
@@ -34,14 +40,14 @@ public class HabitoQuotes {
     }
 
     @Given("^I have the data for a user with sufficient funds$")
-    public void iHaveTheDataForAUserWithSufficientFunds() {
+    public void givenIHaveTheDataForAUserWithSufficientFunds() {
         requestBody = NEW_MORTGAGE_SINGLE_SUFFICIENT_FUNDS.getJson();
     }
 
     @When("^I POST the user data to mortgage-service \"([^\"]*)\"$")
-    public void whenIiPOSTTheUserDataToMortgageService(String endpoint) {
+    public void whenIPOSTTheUserDataToMortgageService(String endpoint) {
         LOGGER.info("Posting quote request to Habito");
-        response = given().contentType(CONTENT_TYPE_JSON).body(requestBody).when().post(ROOT_URL + endpoint);
+        response = given().contentType(CONTENT_TYPE_JSON).body(requestBody).when().post(endpoint);
     }
 
     @Then("^I will receive a prompt and valid response with no quote data$")
