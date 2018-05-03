@@ -8,7 +8,7 @@ import java.io.IOException;
 
 public class SchemaHandler {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(JsonValidator.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(SchemaHandler.class);
 
     public JSONObject getStringFromFile(String path, String schemaName) {
         try {

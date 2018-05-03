@@ -23,6 +23,8 @@ sourceSets {
 
 dependencies {
     testCompile('io.rest-assured:rest-assured:3.0.6')
+    testCompile('io.rest-assured:json-path:3.0.6')
+    testCompile('io.rest-assured:json-schema-validator:3.0.6')
     cucumberRuntime('io.cucumber:cucumber-java:2.1.+')
     testCompile('io.cucumber:cucumber-core:2.3.+')
     testCompile('io.cucumber:cucumber-java:2.3.+')
