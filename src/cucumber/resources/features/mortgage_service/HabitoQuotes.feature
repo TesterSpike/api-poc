@@ -1,7 +1,7 @@
 @mortgage_service
 Feature: A the mortgage service I will be able to request indicative mortgage quotes using various user date
     Background:
-        Given I am using the "Mortgage Service"
+        Given I am using the "mortgage-service"
 
     Scenario: A single user with insufficient funds will not be given an indicative mortgage quote
         Given I have the data for a user with insufficient funds

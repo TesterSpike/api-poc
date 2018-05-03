@@ -33,7 +33,7 @@
       }
     },
     "financialDetails": {
-      "savings": 0,
+      "savings": 100000,
       "annualIncome": 45000,
       "joint": false,
       "totalCreditDebt": 1000,
