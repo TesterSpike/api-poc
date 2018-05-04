@@ -11,7 +11,7 @@ public class FileHandler {
         return new String(Files.readAllBytes(Paths.get(file)));
     }
 
-    public String getStringFromSchemaFile(String path, String name) throws IOException {
+    String getStringFromSchemaFile(String path, String name) throws IOException {
         String file = "src/cucumber/resources/data/" + path + "/schema/" + name + ".schema";
         return new String(Files.readAllBytes(Paths.get(file)));
     }
