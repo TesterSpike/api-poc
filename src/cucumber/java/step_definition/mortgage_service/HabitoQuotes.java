@@ -48,15 +48,15 @@ public class HabitoQuotes {
 
     @Then("^I will receive a prompt and valid response with no quote data$")
     public void thenIWillReceiveAPromptAndValidResponseWithNoQuoteData() {
-        //TODO add schema validation to response spec for JSON
         response.spec(getOkJsonResponseSpec(2L))
-                .body("quotes.size()", equalTo(0));
+                .body("quotes.size()", equalTo(0))
+                .body(SchemaHandler.validateSchema("mortgages", "HabitoQuote"));
     }
 
     @Then("^I will receive a prompt and valid response with valid quote data$")
     public void thenIWillReceiveAPromptAndValidResponseWithValidQuoteData() {
-
         response.spec(getOkJsonResponseSpec(2L))
-                .body("quotes.size()", equalTo(1));
+                .body("quotes.size()", equalTo(1))
+                .body(SchemaHandler.validateSchema("mortgage", "HabitoQuote"));
     }
 }
